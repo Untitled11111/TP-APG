@@ -43,15 +43,6 @@ def estVide(F):
           return True
 
 
-def meilleur_tuple(lsblanc):
-
-    meilleur = lsblanc[1]
-    for t in lsblanc:
-        if t[1] < meilleur[1]:
-            meilleur = t
-    
-    return meilleur
-
 def succ_uniquement(L, i):
 
     tmp = set() 
@@ -60,6 +51,13 @@ def succ_uniquement(L, i):
         tmp.add(sommet)  
 
     return list(tmp)  
+
+
+def meilleur_element (L):
+     
+    for sub_element in L : 
+        print(" elmeent ", sub_element)
+
 
 def Prim(L2, v0):
     
@@ -83,12 +81,12 @@ def Prim(L2, v0):
     blancs[v0] = False  
     gris[v0] = True  
 
-    while len(listesuccgris) > 0 :
-                 
 
-        meilleur = meilleur_tuple(listesuccgris)
-        listesuccgris.pop(meilleur)
+    for element in listesuccgris : 
+        meilleur_element(element)
 
+
+        
 
 
 
