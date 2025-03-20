@@ -61,20 +61,26 @@ def Prim(L, v0):
     for i in range ( len(get_sommets(L))) : 
         liste_blanc.append(i)
 
+    liste_noir.append(liste_blanc[0])
+    print( " Ma vie elle est nul ", nb_sommets(liste_noir)  )
+
+    liste_gris.append(succ(L,liste_noir[0])) 
+    print(" En plus je suis bronze ",nb_sommets(liste_gris) ) 
+
+
     ##-----Fin à faire-----##
     return pi	
 
 L = [[(1,3),(2,4),(4,6)],[(3,2)],[(4,1)],[(4,2)],[(1,3)]]
 #Les tests
 print("---Les tests sur L---")
-print("nb_sommets : ", nb_sommets(L))
-print("get_sommets :", get_sommets(L))
-print("get_aretes :", get_aretes(L))
+print("nb_sommets L : ", nb_sommets(L))
+print("get_sommets L :", get_sommets(L))
+print("get_aretes L :", get_aretes(L))
 ajouter_arete(L,1,2,9)
-print("get_aretes :", get_aretes(L))
+print("get_aretes L v2:", get_aretes(L))
 i = 0
 print("succ(",i,") = ", succ(L,i))
-
 
 print("PUTE")
 print("PUTE")
@@ -93,9 +99,9 @@ print("PUTE")
 print("---L2, à vous---")
 L2 = [[(1,4),(2,1)],[(3,3),(4,6)],[(1,2)],[(1,1),(4,1)],[(2,2)]]
 #Initialisation de L2
-print("nb_sommets : ", nb_sommets(L2))
-print("get_sommets :", get_sommets(L2))
-print("get_aretes :", get_aretes(L2))
+print("nb_sommets L2 : ", nb_sommets(L2))
+print("get_sommets L2 :", get_sommets(L2))
+print("get_aretes L2 :", get_aretes(L2))
 
 print(Prim(L2,0))
 ##-----Fin à faire-----##
