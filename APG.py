@@ -44,6 +44,19 @@ def retirer_elem(L,sommet):
             if ( L[1] == sommet): 
                 L.pop(sommet)
 
+def pluspetit_elem(L):
+
+    max = 10000000
+    indice = 0
+    cmp = 0
+
+    for tup in L:
+        if ( L[1] < max): 
+            max = L[1]
+            indice = cmp 
+        cmp = cmp + 1 
+
+    return indice
 	
 def Prim(L2, v0):
     
@@ -58,12 +71,19 @@ def Prim(L2, v0):
     aretes_invalide = []
 
     for sommet in nb_sommets(L2) : 
-          aretes_dispo.append(succ(sommet))
+          aretes_invalide.append(succ(sommet))
 
     c[v0] = 0 
     blanc[v0] = False  
     noir[v0] = True  
-    
+    aretes_dispo.append(succ(v0))
+
+    for arete in aretes_dispo : 
+        pluspetit_elem(aretes_dispo)
+
+
+
+
 
 
 
