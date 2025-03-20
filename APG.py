@@ -36,31 +36,11 @@ def succ(L, i):
 	for j in range(len(L[i])):
 		succs.append(L[i][j])
 	return succs
+
+def retirer_elem(L,sommet):
 	
-def sommets_uniquement(L):
-      
-    cmpt = 0 
 
-    nombres = [nombre for sous_liste in L
-            for tuple in sous_liste 
-                for nombre in tuple]
-    print(" test " , nombres)
-
-    if ( cmpt % 2) == 0 : 
-        print( " test", nombres)
-
-def aretes_uniquement(L):
-      
-    cmpt = 0 
-
-    nombres = [nombre for sous_liste in L
-                for tuple in sous_liste 
-                    for nombre in tuple]
-
-
-    if ( cmpt % 2) != 0 : 
-        print( " test", nombres)
-
+	
 def Prim(L2, v0):
     
     pi = [-1] * nb_sommets(L2)  
