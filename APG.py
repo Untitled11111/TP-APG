@@ -37,6 +37,9 @@ def succ(L, i):
 		succs.append(L[i][j])
 	return succs
 	
+def recuperer_aretes():
+      
+
 def Prim(L, v0):
     ##-----A FAIRE-----##
     c = [-1]*nb_sommets(L) #Les clefs, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
@@ -51,12 +54,6 @@ def Prim(L, v0):
     for i in range ( len(get_sommets(L))) : 
         liste_blanc.append(i)
 
-
-    for i in range ( len(liste_blanc)) : 
-          print(i)
-
-    print(L,0)
-
     ##-----Fin à faire-----##
     return pi	
 
@@ -70,6 +67,18 @@ ajouter_arete(L,1,2,9)
 print("get_aretes :", get_aretes(L))
 i = 0
 print("succ(",i,") = ", succ(L,i))
+
+
+print("PUTE")
+print("PUTE")
+
+for sous_tab in L:  
+    for tuples in sous_tab:  
+        print(tuples)  
+
+print("PUTE")
+print("PUTE")
+
 
 
 
