@@ -73,13 +73,26 @@ def Prim(L2, v0):
     gris = [False] * nb_sommets(L2)
     noirs = [False] * nb_sommets(L2)
     
-    listesuccblancs = []
+    listesuccgris = []
     listesuccnoirs = []
 
-    listesuccblancs.append(succ(L2,v0))
+    # tous les successeurs de V0 sont succeptible d'etre appelé 
+    listesuccgris.append(succ_uniquement(L2,v0))
+    
+    # v0 n'a plus besoin d'être traité
     blancs.pop(v0)
-    gris.append(succ_uniquement(L2,v0))
     noirs.append(v0)
+
+    # On prépare la recherche sur les successeurs de v0
+    gris.append(succ_uniquement(L2,v0))
+
+    print(" succ gris ",listesuccgris)
+
+    for sommet in gris :
+         
+        listesuccgris.append(succ_uniquement(L2,sommet))
+        gris.append(succ(L2,sommet))
+        listesuccgris.append(meilleur_tuple(gris))
 
 
 
