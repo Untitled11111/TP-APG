@@ -37,26 +37,48 @@ def succ(L, i):
 		succs.append(L[i][j])
 	return succs
 	
+def sommets_uniquement(L):
+      
+    cmpt = 0 
+
+    nombres = [nombre for sous_liste in L
+            for tuple in sous_liste 
+                for nombre in tuple]
+    print(" test " , nombres)
+
+    if ( cmpt % 2) == 0 : 
+        print( " test", nombres)
+
+def aretes_uniquement(L):
+      
+    cmpt = 0 
+
+    nombres = [nombre for sous_liste in L
+                for tuple in sous_liste 
+                    for nombre in tuple]
+
+
+    if ( cmpt % 2) != 0 : 
+        print( " test", nombres)
 
 def Prim(L2, v0):
     ##-----A FAIRE-----##
-    c = [-1]*nb_sommets(L2) #Les clefs, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
     pi = [-1]*nb_sommets(L2)#Les prédécesseurs dans l'arbre minimal à construire, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
+    c = [-1]*nb_sommets(L2) #Les clefs, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
 
     liste_blanc = []
     liste_gris = []
     liste_noir = []
 
+    print(" test avant " , liste_noir)
+    liste_noir.append(succ(L2,0))
+    print(" test apres ", liste_noir)
+
+
 
     # remplissage liste blanche
     for i in range ( len(get_sommets(L2))) : 
         liste_blanc.append(i)
-
-    liste_noir.append(liste_blanc[0])
-    print( " Ma vie elle est nul ", nb_sommets(liste_noir)  )
-
-    liste_gris.append(succ(L,liste_noir[0])) 
-    print(" En plus je suis bronze ",nb_sommets(liste_gris) ) 
 
 
     ##-----Fin à faire-----##
@@ -78,11 +100,6 @@ print("succ(",i,") = ", succ(L,i))
 
 '''
 
-print("PUTE")
-
-
-
-print("PUTE")
 
 print("---L2, à vous---")
 L2 = [[(1,4),(2,1)],[(3,3),(4,6)],[(1,2)],[(1,1),(4,1)],[(2,2)]]
@@ -99,13 +116,6 @@ print("succ de 1 ",succ(L2,1))
 print("succ de 2 ",succ(L2,2))
 print("succ de 3 ",succ(L2,3))
 print("succ de 4 ",succ(L2,4))
-
-
-
-nombres = [nombre for sous_liste in L2
-            for tuple_ in sous_liste 
-                for nombre in tuple_]
-print(" test " , nombres)
 
 
 print(Prim(L2,0))
