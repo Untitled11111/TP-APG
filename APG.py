@@ -37,16 +37,32 @@ def succ(L, i):
 		succs.append(L[i][j])
 	return succs
 
-def meilleur_clef(L, gris):
-    min_val = 0
+def meilleur_clef(gris):
+
+    min_val = 100000
     min_sommet = -1
     
-    for sommet in range(len(L)):
-        if gris[sommet] and L[sommet] < min_val:
-            min_val = L[sommet]
-            min_sommet = sommet
+    for sommet in range(len(gris)):
+        if gris[1] < min_val:
+            min_val = gris[1]
     
-    return min_sommet
+    return min_val 
+
+def meilleur_sommet(gris):
+
+    min_val = 100000
+    min_sommet = -1
+
+    cmp = 0 
+    cmp2 = 0 
+
+    for sommet in range(len(gris)):
+        if gris[1] < min_val:
+            min_val = gris[1]
+            cmp2 = cmp 
+        cmp = cmp + 1 
+
+    return min_val 
 
 def clef_vers_arêtes(L, blanc, noir, valeur):
 
@@ -85,8 +101,8 @@ def Prim(L2, v0):
     print("blanc", blanc)
     print("noir", noir) 
 
-    meilleur_sommet = meilleur_clef(c, gris)
-    noir[meilleur_sommet] = True
+    meilleur_sommet = meilleur_sommet(c, gris)
+    L2[meilleur_sommet] = True
     blanc[meilleur_sommet] = False
     gris.append(succ(L2,meilleur_sommet))
     clef_vers_arêtes(L2, aretes_blanc,aretes_noir,meilleur_sommet)
