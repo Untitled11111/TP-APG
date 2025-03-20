@@ -48,10 +48,18 @@ def meilleur_clef(L, gris):
     
     return min_sommet
 
-def clef_vers_arêtes(L, noir, valeur):
-      
-    if (L[0] == valeur ):
-        noir.append(L)
+def clef_vers_arêtes(L, blanc, noir, valeur):
+
+    a_supprimer = 0  
+
+    for elem in blanc:
+            if elem[0] == valeur:  
+                a_supprimer = elem
+
+    if ( a_supprimer != None):
+        blanc.pop(a_supprimer)  
+        noir.append(a_supprimer)   
+        a_supprimer = None
 
 	
 def Prim(L2, v0):
@@ -59,28 +67,32 @@ def Prim(L2, v0):
     pi = [-1] * nb_sommets(L2)  
     c = [-1] * nb_sommets(L2)  
 
-    blanc = []
-    gris = []
-    noir = []    
+    blanc = [True] * nb_sommets(L2)
+    gris = [False] * nb_sommets(L2)
+    noir = [False] * nb_sommets(L2)    
 
     aretes_blanc = []
     aretes_noir = []
 
-    for sommet in nb_sommets(L2) : 
-          aretes_blanc.append(succ(sommet))
+    for i in range ( nb_sommets(L2)) : 
+        aretes_blanc.append(succ(L2,i))
 
     c[v0] = 0 
-    blanc[v0] = False  
+    blanc[v0] = False
     noir[v0] = True  
-    gris.append(succ(v0))
-     
+    gris.append(succ(L2,v0))
+
+    print("blanc", blanc)
+    print("noir", noir) 
 
     meilleur_sommet = meilleur_clef(c, gris)
     noir[meilleur_sommet] = True
     blanc[meilleur_sommet] = False
-    gris.append(succ(meilleur_sommet))
-    clef_vers_arêtes(L2,noir,meilleur_sommet)
+    gris.append(succ(L2,meilleur_sommet))
+    clef_vers_arêtes(L2, aretes_blanc,aretes_noir,meilleur_sommet)
 
+    print("blanc", blanc)
+    print("noir", noir)
 
     return pi  
 
