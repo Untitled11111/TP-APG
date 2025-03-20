@@ -19,15 +19,14 @@ def ajouter_arete(L, i, j, w):
 	L[i].append((j,w)) #À ne pas faire
 
 def get_aretes(L):
-	'''Entrée : une liste d'adjacence
-	Sortie : une liste de couple de sommets
-	Renvoie la liste des arêtes, sans les poids'''
-	aretes = []
-	##-----A FAIRE-----##
 
+    aretes = []
+    ##-----A FAIRE-----##
 
-	##-----Fin à faire-----##	
-	return aretes
+    for s in range( nb_sommets(L)):
+        for a in range (nb_sommets(L[s])):
+            aretes.append(L[s][a])
+    return aretes
 
 def succ(L, i):
 	'''Entrée : une liste d'adjacence et un entier
