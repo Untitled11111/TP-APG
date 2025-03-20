@@ -25,7 +25,7 @@ def get_aretes(L):
 
     for s in range( nb_sommets(L)):
         for a in range (nb_sommets(L[s])):
-            aretes.append(L[s][a])
+            aretes.append((s,L[s][a][0]))
     return aretes
 
 def succ(L, i):
