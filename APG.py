@@ -110,7 +110,7 @@ print("succ de 0 ",succ(L2,0))
 print("succ de 1 ",succ(L2,1))
 print("succ de 2 ",succ(L2,2))
 print("succ de 3 ",succ(L2,3))
-print("succ de 4",succ(L2,4))
+print("succ de 4 ",succ(L2,4))
 
 print(Prim(L2,0))
 ##-----Fin à faire-----##
