@@ -55,6 +55,8 @@ def Prim(L, v0):
     for i in range ( len(liste_blanc)) : 
           print(i)
 
+    print(L,0)
+
     ##-----Fin à faire-----##
     return pi	
 
