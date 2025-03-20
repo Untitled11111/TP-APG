@@ -42,12 +42,44 @@ def estVide(F):
     if F.size() == 0 :
           return True
 
-	
+
+def meilleur_tuple(lsblanc):
+
+    meilleur = lsblanc[0]
+    for t in lsblanc:
+        if t[1] < meilleur[1]:
+            meilleur = t
+    
+    return meilleur
+
+def succ_uniquement(L, i):
+
+    tmp = set() 
+    
+    for sommet, poids in succ(L, i):
+        tmp.add(sommet)  
+
+    return list(tmp)  
+
 def Prim(L2, v0):
     
     pi = [-1] * nb_sommets(L2)  
     c = [-1] * nb_sommets(L2)  
 
+    c[v0] = 0 
+    pi[v0] = 0
+
+    blancs = [True] * nb_sommets(L2)
+    gris = [False] * nb_sommets(L2)
+    noirs = [False] * nb_sommets(L2)
+    
+    listesuccblancs = []
+    listesuccnoirs = []
+
+    listesuccblancs.append(succ(L2,v0))
+    blancs.pop(v0)
+    gris.append(succ_uniquement(L2,v0))
+    noirs.append(v0)
 
 
 
@@ -86,6 +118,12 @@ print("succ de 1 ",succ(L2,1))
 print("succ de 2 ",succ(L2,2))
 print("succ de 3 ",succ(L2,3))
 print("succ de 4 ",succ(L2,4))
+
+
+print("succeseur de 0",succ_uniquement(L2,0))
+print("succeseur de 1",succ_uniquement(L2,1))
+print("succeseur de 2",succ_uniquement(L2,2))
+print("succeseur de 3",succ_uniquement(L2,3))
 
 
 print(Prim(L2,0))
