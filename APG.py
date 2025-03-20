@@ -62,26 +62,22 @@ def aretes_uniquement(L):
         print( " test", nombres)
 
 def Prim(L2, v0):
-    ##-----A FAIRE-----##
-    pi = [-1]*nb_sommets(L2)#Les prédécesseurs dans l'arbre minimal à construire, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
-    c = [-1]*nb_sommets(L2) #Les clefs, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
+    
+    pi = [-1] * nb_sommets(L2)  
+    c = [-1] * nb_sommets(L2)  
 
-    liste_blanc = []
-    liste_gris = []
-    liste_noir = []
-
-    print(" test avant " , liste_noir)
-    liste_noir.append(succ(L2,0))
-    print(" test apres ", liste_noir)
-
-
-    # remplissage liste blanche
-    for i in range ( len(get_sommets(L2))) : 
-        liste_blanc.append(i)
+    blanc = [True] * nb_sommets(L2)  
+    gris = [False] * nb_sommets(L2)
+    noir = [False] * nb_sommets(L2)
+    
+    c[v0] = 0 
+    blanc[v0] = False  
+    noir[v0] = True  
+    
 
 
-    ##-----Fin à faire-----##
-    return pi	
+    return pi  
+
 
 L = [[(1,3),(2,4),(4,6)],[(3,2)],[(4,1)],[(4,2)],[(1,3)]]
 #Les tests
@@ -101,7 +97,7 @@ print("succ(",i,") = ", succ(L,i))
 
 
 print("---L2, à vous---")
-L2 = [[(1,4),(2,1)],[(3,3),(4,6)],[(1,2)],[(1,1),(4,1)],[(2,2)]]
+L2 = [ [(1,4),(2,1)], [(3,3),(4,6)], [(1,2)],  [(1,1),(4,1)], [(2,2)]]
 
 
 
