@@ -47,10 +47,10 @@ def recuperer_aretes(tab):
     # Renvoie les arêtes parce que Python parse automatiquement
     return tab[1]
 
-def Prim(L, v0):
+def Prim(L2, v0):
     ##-----A FAIRE-----##
-    c = [-1]*nb_sommets(L) #Les clefs, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
-    pi = [-1]*nb_sommets(L)#Les prédécesseurs dans l'arbre minimal à construire, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
+    c = [-1]*nb_sommets(L2) #Les clefs, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
+    pi = [-1]*nb_sommets(L2)#Les prédécesseurs dans l'arbre minimal à construire, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
 
     liste_blanc = []
     liste_gris = []
@@ -58,7 +58,7 @@ def Prim(L, v0):
 
 
     # remplissage liste blanche
-    for i in range ( len(get_sommets(L))) : 
+    for i in range ( len(get_sommets(L2))) : 
         liste_blanc.append(i)
 
     liste_noir.append(liste_blanc[0])
@@ -73,6 +73,9 @@ def Prim(L, v0):
 
 L = [[(1,3),(2,4),(4,6)],[(3,2)],[(4,1)],[(4,2)],[(1,3)]]
 #Les tests
+
+'''
+
 print("---Les tests sur L---")
 print("nb_sommets L : ", nb_sommets(L))
 print("get_sommets L :", get_sommets(L))
@@ -82,7 +85,8 @@ print("get_aretes L v2:", get_aretes(L))
 i = 0
 print("succ(",i,") = ", succ(L,i))
 
-print("PUTE")
+'''
+
 print("PUTE")
 
 # 
@@ -91,17 +95,22 @@ for sous_tab in L:
         print(" sommet " , recuperer_sommets(tuples) , " arêtes " , recuperer_aretes(tuples))  
 
 print("PUTE")
-print("PUTE")
-
-
-
 
 print("---L2, à vous---")
 L2 = [[(1,4),(2,1)],[(3,3),(4,6)],[(1,2)],[(1,1),(4,1)],[(2,2)]]
+
+
+
 #Initialisation de L2
 print("nb_sommets L2 : ", nb_sommets(L2))
 print("get_sommets L2 :", get_sommets(L2))
 print("get_aretes L2 :", get_aretes(L2))
+
+print("succ de 0 ",succ(L2,0))
+print("succ de 1 ",succ(L2,1))
+print("succ de 2 ",succ(L2,2))
+print("succ de 3 ",succ(L2,3))
+print("succ de 4",succ(L2,4))
 
 print(Prim(L2,0))
 ##-----Fin à faire-----##
