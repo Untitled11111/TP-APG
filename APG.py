@@ -37,52 +37,47 @@ def succ(L, i):
 		succs.append(L[i][j])
 	return succs
 
-def retirer_elem(L,sommet):
-	
-    for sous_liste in L2:  
-        for tup in sous_liste:
-            if ( L[1] == sommet): 
-                L.pop(sommet)
+def meilleur_clef(L):
 
-def pluspetit_elem(L):
-
-    max = 10000000
-    indice = 0
+    valeur = 1000000000
     cmp = 0
+    cmp2 = 0
 
-    for tup in L:
-        if ( L[1] < max): 
-            max = L[1]
-            indice = cmp 
-        cmp = cmp + 1 
+    for poids in L :
+            if ( L[1] < valeur ):
+                valeur = L[1]
+                cmp2 = cmp 
+            cmp = cmp + 1 
 
-    return indice
+    return cmp2
+
+def ajouter_sommet(L,v0):
+      
+      L.append(v0)
+
 	
 def Prim(L2, v0):
     
     pi = [-1] * nb_sommets(L2)  
     c = [-1] * nb_sommets(L2)  
 
-    blanc = [True] * nb_sommets(L2)  
-    gris = [False] * nb_sommets(L2)
-    noir = [False] * nb_sommets(L2)
-    
-    aretes_dispo = []
-    aretes_invalide = []
+    blanc = []
+    gris = []
+    noir = []    
 
     for sommet in nb_sommets(L2) : 
-          aretes_invalide.append(succ(sommet))
+          blanc.append(succ(sommet))
 
     c[v0] = 0 
     blanc[v0] = False  
     noir[v0] = True  
-    aretes_dispo.append(succ(v0))
+    gris.append(succ(v0))
+     
 
-    for arete in aretes_dispo : 
-        pluspetit_elem(aretes_dispo)
+    pos = meilleur_clef(gris)
+    gris.append(succ(L2,gris(pos)))
 
-
-
+    noir.append(L2(pos))
 
 
 
