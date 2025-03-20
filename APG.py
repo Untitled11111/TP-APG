@@ -37,45 +37,10 @@ def succ(L, i):
 		succs.append(L[i][j])
 	return succs
 
-def meilleur_clef(gris):
-
-    min_val = 100000
-    min_sommet = -1
-    
-    for sommet in range(len(gris)):
-        if gris[1] < min_val:
-            min_val = gris[1]
-    
-    return min_val 
-
-def meilleur_sommet(gris):
-
-    min_val = 100000
-    min_sommet = -1
-
-    cmp = 0 
-    cmp2 = 0 
-
-    for sommet in range(len(gris)):
-        if gris[1] < min_val:
-            min_val = gris[1]
-            cmp2 = cmp 
-        cmp = cmp + 1 
-
-    return min_val 
-
-def clef_vers_arêtes(L, blanc, noir, valeur):
-
-    a_supprimer = 0  
-
-    for elem in blanc:
-            if elem[0] == valeur:  
-                a_supprimer = elem
-
-    if ( a_supprimer != None):
-        blanc.pop(a_supprimer)  
-        noir.append(a_supprimer)   
-        a_supprimer = None
+def estVide(F):
+	
+    if F.size() == 0 :
+          return True
 
 	
 def Prim(L2, v0):
@@ -83,32 +48,8 @@ def Prim(L2, v0):
     pi = [-1] * nb_sommets(L2)  
     c = [-1] * nb_sommets(L2)  
 
-    blanc = [True] * nb_sommets(L2)
-    gris = [False] * nb_sommets(L2)
-    noir = [False] * nb_sommets(L2)    
 
-    aretes_blanc = []
-    aretes_noir = []
 
-    for i in range ( nb_sommets(L2)) : 
-        aretes_blanc.append(succ(L2,i))
-
-    c[v0] = 0 
-    blanc[v0] = False
-    noir[v0] = True  
-    gris.append(succ(L2,v0))
-
-    print("blanc", blanc)
-    print("noir", noir) 
-
-    meilleur_sommet = meilleur_sommet(c, gris)
-    L2[meilleur_sommet] = True
-    blanc[meilleur_sommet] = False
-    gris.append(succ(L2,meilleur_sommet))
-    clef_vers_arêtes(L2, aretes_blanc,aretes_noir,meilleur_sommet)
-
-    print("blanc", blanc)
-    print("noir", noir)
 
     return pi  
 
