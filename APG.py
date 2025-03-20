@@ -45,7 +45,7 @@ def estVide(F):
 
 def meilleur_tuple(lsblanc):
 
-    meilleur = lsblanc[0]
+    meilleur = lsblanc[1]
     for t in lsblanc:
         if t[1] < meilleur[1]:
             meilleur = t
@@ -77,22 +77,18 @@ def Prim(L2, v0):
     listesuccnoirs = []
 
     # tous les successeurs de V0 sont succeptible d'etre appelé 
-    listesuccgris.append(succ_uniquement(L2,v0))
+    listesuccgris.append(succ(L2,v0))
     
-    # v0 n'a plus besoin d'être traité
-    blancs.pop(v0)
-    noirs.append(v0)
+    #V0 n'est plus plus mais gris 
+    blancs[v0] = False  
+    gris[v0] = True  
 
-    # On prépare la recherche sur les successeurs de v0
-    gris.append(succ_uniquement(L2,v0))
+    while len(listesuccgris) > 0 :
+                 
 
-    print(" succ gris ",listesuccgris)
+        meilleur = meilleur_tuple(listesuccgris)
+        listesuccgris.pop(meilleur)
 
-    for sommet in gris :
-         
-        listesuccgris.append(succ_uniquement(L2,sommet))
-        gris.append(succ(L2,sommet))
-        listesuccgris.append(meilleur_tuple(gris))
 
 
 
