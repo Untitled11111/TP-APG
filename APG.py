@@ -37,8 +37,8 @@ def succ(L, i):
 		succs.append(L[i][j])
 	return succs
 	
-def recuperer_aretes():
-      
+def recuperer_aretes(tab):
+    return tab[4]
 
 def Prim(L, v0):
     ##-----A FAIRE-----##
@@ -74,7 +74,7 @@ print("PUTE")
 
 for sous_tab in L:  
     for tuples in sous_tab:  
-        print(tuples)  
+        recuperer_aretes(tuples)  
 
 print("PUTE")
 print("PUTE")
