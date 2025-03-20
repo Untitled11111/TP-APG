@@ -21,7 +21,6 @@ def ajouter_arete(L, i, j, w):
 def get_aretes(L):
 
     aretes = []
-    ##-----A FAIRE-----##
 
     for s in range( nb_sommets(L)):
         for a in range (nb_sommets(L[s])):
@@ -63,8 +62,7 @@ print("succ(",i,") = ", succ(L,i))
 
 
 print("---L2, à vous---")
-L2 = [[],[],[],[],[]]
-##-----A FAIRE-----##
+L2 = [[(1,4),(2,1)],[(3,3),(4,6)],[(1,2)],[(1,1),(4,1)],[(2,2)]]
 #Initialisation de L2
 
 
