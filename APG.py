@@ -55,8 +55,17 @@ def succ_uniquement(L, i):
 
 def meilleur_element (L):
      
+    cmp = 0
+    min = 10000000000000000
     for sub_element in L : 
         print(" elmeent ", sub_element)
+        for truc in sub_element : 
+            if ( cmp % 2 == 0 ) :
+                if ( truc < min ) : 
+                     min = truc 
+        cmp = cmp + 1 
+
+    return cmp
 
 
 def Prim(L2, v0):
@@ -83,8 +92,8 @@ def Prim(L2, v0):
 
 
     for element in listesuccgris : 
-        meilleur_element(element)
-
+        
+        meilleur = meilleur_element(element)
 
         
 
