@@ -75,7 +75,6 @@ def Prim(L2, v0):
     print(" test apres ", liste_noir)
 
 
-
     # remplissage liste blanche
     for i in range ( len(get_sommets(L2))) : 
         liste_blanc.append(i)
