@@ -68,6 +68,16 @@ def meilleur_element(lsblanc):
             meilleur = t
     return meilleur
 
+def supprimer_sommet_deja_fait (gris,noirs,valeurs):
+     
+    for sub_liste in gris: 
+         for element in sub_liste : 
+            if element[0] == valeurs : 
+                gris.pop(element[0])
+                noirs.append(element[0])
+    
+
+
 def Prim(L2, v0):
     
     pi = [-1] * nb_sommets(L2)  
@@ -93,12 +103,19 @@ def Prim(L2, v0):
     # On itère sur les successeurs de gris
     for element in listesuccgris:
         for successeur in element:  
+
+
             meilleur = meilleur_element([successeur])  
             c[meilleur[0]] = get_clef(meilleur)  
             pi[meilleur[0]] = get_pi(meilleur)  
-            listesuccgris.append(succ(L2,meilleur_element))
-
-
+            
+            print("meilleur élement" ,meilleur)
+            print(" sommet du meilleur ", pi[meilleur[0]])
+            print(" clef du meilleur ", c[meilleur[0]])
+            
+            listesuccgris.append (pi[meilleur[0]])
+            supprimer_sommet_deja_fait(listesuccgris,listesuccnoirs,pi[meilleur[0]] )
+            listesuccgris.append(succ(L2,c[meilleur[0]]))
 
     return pi  
 
