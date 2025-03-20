@@ -39,6 +39,10 @@ def succ(L, i):
 
 def retirer_elem(L,sommet):
 	
+    for sous_liste in L2:  
+        for tup in sous_liste:
+            if ( L[1] == sommet): 
+                L.pop(sommet)
 
 	
 def Prim(L2, v0):
@@ -50,10 +54,17 @@ def Prim(L2, v0):
     gris = [False] * nb_sommets(L2)
     noir = [False] * nb_sommets(L2)
     
+    aretes_dispo = []
+    aretes_invalide = []
+
+    for sommet in nb_sommets(L2) : 
+          aretes_dispo.append(succ(sommet))
+
     c[v0] = 0 
     blanc[v0] = False  
     noir[v0] = True  
     
+
 
 
     return pi  
