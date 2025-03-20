@@ -52,21 +52,21 @@ def succ_uniquement(L, i):
 
     return list(tmp)  
 
+def get_clef(tuple):
 
-def meilleur_element (L):
-     
-    cmp = 0
-    min = 10000000000000000
-    for sub_element in L : 
-        print(" elmeent ", sub_element)
-        for truc in sub_element : 
-            if ( cmp % 2 == 0 ) :
-                if ( truc < min ) : 
-                     min = truc 
-        cmp = cmp + 1 
+    return tuple[1]
 
-    return cmp
+def get_pi(tuple):
 
+    return tuple[0]
+
+def meilleur_element(lsblanc):
+
+    meilleur = lsblanc[0]
+    for t in lsblanc:
+        if t[1] < meilleur[1]:
+            meilleur = t
+    return meilleur
 
 def Prim(L2, v0):
     
@@ -83,19 +83,20 @@ def Prim(L2, v0):
     listesuccgris = []
     listesuccnoirs = []
 
-    # tous les successeurs de V0 sont succeptible d'etre appelé 
-    listesuccgris.append(succ(L2,v0))
+    # tous les successeurs de V0 sont susceptibles d'être appelés 
+    listesuccgris.append(succ(L2,v0))  
     
-    #V0 n'est plus plus mais gris 
+    # V0 n'est plus blanc, il devient gris
     blancs[v0] = False  
     gris[v0] = True  
 
-
-    for element in listesuccgris : 
-        
-        meilleur = meilleur_element(element)
-
-        
+    # On itère sur les successeurs de gris
+    for element in listesuccgris:
+        for successeur in element:  
+            meilleur = meilleur_element([successeur])  
+            c[meilleur[0]] = get_clef(meilleur)  
+            pi[meilleur[0]] = get_pi(meilleur)  
+            listesuccgris.append(succ(L2,meilleur_element))
 
 
 
