@@ -38,15 +38,25 @@ def succ(L, i):
 	return succs
 	
 def Prim(L, v0):
-	##-----A FAIRE-----##
-	c = [-1]*nb_sommets(L) #Les clefs, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
-	pi = [-1]*nb_sommets(L)#Les prédécesseurs dans l'arbre minimal à construire, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
+    ##-----A FAIRE-----##
+    c = [-1]*nb_sommets(L) #Les clefs, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
+    pi = [-1]*nb_sommets(L)#Les prédécesseurs dans l'arbre minimal à construire, initialisées à -1. Vous avez le droit de changer la valeur par défaut.
+
+    liste_blanc = []
+    liste_gris = []
+    liste_noir = []
 
 
+    # remplissage liste blanche
+    for i in range ( len(get_sommets(L))) : 
+        liste_blanc.append(i)
 
 
-	##-----Fin à faire-----##
-	return pi	
+    for i in range ( len(liste_blanc)) : 
+          print(i)
+
+    ##-----Fin à faire-----##
+    return pi	
 
 L = [[(1,3),(2,4),(4,6)],[(3,2)],[(4,1)],[(4,2)],[(1,3)]]
 #Les tests
@@ -64,7 +74,9 @@ print("succ(",i,") = ", succ(L,i))
 print("---L2, à vous---")
 L2 = [[(1,4),(2,1)],[(3,3),(4,6)],[(1,2)],[(1,1),(4,1)],[(2,2)]]
 #Initialisation de L2
-
+print("nb_sommets : ", nb_sommets(L2))
+print("get_sommets :", get_sommets(L2))
+print("get_aretes :", get_aretes(L2))
 
 print(Prim(L2,0))
 ##-----Fin à faire-----##
