@@ -37,8 +37,15 @@ def succ(L, i):
 		succs.append(L[i][j])
 	return succs
 	
+def recuperer_sommets(tab):
+
+    # Renvoie les sommetes parce que Python parse automatiquement
+    return tab[0]
+
 def recuperer_aretes(tab):
-    return tab[4]
+
+    # Renvoie les arêtes parce que Python parse automatiquement
+    return tab[1]
 
 def Prim(L, v0):
     ##-----A FAIRE-----##
@@ -72,9 +79,10 @@ print("succ(",i,") = ", succ(L,i))
 print("PUTE")
 print("PUTE")
 
+# 
 for sous_tab in L:  
     for tuples in sous_tab:  
-        recuperer_aretes(tuples)  
+        print(" sommet " , recuperer_sommets(tuples) , " arêtes " , recuperer_aretes(tuples))  
 
 print("PUTE")
 print("PUTE")
