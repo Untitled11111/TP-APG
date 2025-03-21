@@ -95,9 +95,34 @@ def Prim(L2, v0):
     blancs[v0] = False  
     noirs[v0] = True  
     
-    for element in blancs : 
-        for succ in (succ(blancs,element)):
+    # trouve le meilleur élément 
+    meilleur = meilleur_element(listesuccgris)
+
+    print(" meileur ", meilleur)
+
+    #extrait le sommet 
+    sommet = meilleur[0]
+    # extrait l'arêtes 
+    arete = meilleur[1]
+
+    print(" sommet " , sommet)
+    print(" aretes " , arete)
+
+    noirs[sommet] = True
+    gris[sommet] = False
+
     
+    pi[sommet] = v0  
+    c[sommet] = arete  
+
+    # MAJ 
+    for voisin, poids in succ(L2, sommet):
+        if blancs[voisin] and poids < c[voisin]:  
+            c[voisin] = poids
+            pi[voisin] = sommet
+
+    blancs[sommet] = False
+    gris[sommet] = True
 
 
     return pi,c
@@ -146,4 +171,3 @@ print("succeseur de 3",succ_uniquement(L2,3))
 print(Prim(L2,0))
 ##-----Fin à faire-----##
 	
-
