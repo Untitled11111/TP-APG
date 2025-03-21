@@ -62,11 +62,16 @@ def get_pi(tuple):
 
 def meilleur_element(lsblanc):
 
-    meilleur = lsblanc[0]
-    for t in lsblanc:
-        if t[1] < meilleur[1]:
-            meilleur = t
-    return meilleur
+    tmp_sommet, meilleur = lsblanc[0] 
+
+    for sommet, poids in lsblanc:
+            if poids < meilleur: 
+                meilleur = poids
+                tmp_sommet = sommet
+            
+    return tmp_sommet, meilleur
+
+
 
 def supprimer_sommet_deja_fait (gris,noirs,valeurs):
      
@@ -81,7 +86,7 @@ def supprimer_sommet_deja_fait (gris,noirs,valeurs):
 def Prim(L2, v0):
     
     pi = [-1] * nb_sommets(L2)  
-    c = [-1] * nb_sommets(L2)  
+    c = [10000] * nb_sommets(L2)  
 
     c[v0] = 0 
     pi[v0] = 0
@@ -94,14 +99,16 @@ def Prim(L2, v0):
     listesuccnoirs = []
 
     # tous les successeurs de V0 sont susceptibles d'être appelés 
-    listesuccgris.append(succ(L2,v0))  
-    
+    listesuccgris += succ(L2, v0)  
+
     # V0 n'est plus blanc, il devient gris
     blancs[v0] = False  
     noirs[v0] = True  
+    
 
-    # On itère sur les successeurs de gris
+    print(" meileur ", meilleur_element(listesuccgris))
 
+    
 
 
     return pi  
