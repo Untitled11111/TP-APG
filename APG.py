@@ -124,9 +124,8 @@ def Prim(L2, v0):
     blancs[sommet] = False
     gris[sommet] = True
 
-    
 
-    return pi  
+    return pi,c
 
 
 L = [[(1,3),(2,4),(4,6)],[(3,2)],[(4,1)],[(4,2)],[(1,3)]]
