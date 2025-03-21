@@ -37,6 +37,54 @@ def succ(L, i):
 		succs.append(L[i][j])
 	return succs
 
+'''
+BFS Fait en prévision de l'examin avant l'ancien format. Fonction mais affiche 2 fois le dernier sommet 
+
+# Fonction BFS
+def BFS(G, id):
+
+    # Pour chaque sommet G faire 
+    for v in G.sommets:
+        # Coloriser en blanc 
+        v.couleur = 0
+
+    liste_blanc = []
+    liste_noir = []
+
+    # Ajouter Sommet0 dans f et colorier Sommet0 en gris 
+    sommetdepart = G.get_sommet_by_id(id)
+    liste_blanc.append(sommetdepart)
+
+    # Liste_blanc = liste de travail 
+    while ( not EstVide(liste_blanc))  :
+
+        # Liste de sommets à traiter 
+        for sommetb in liste_blanc: 
+
+            # On les colories en gris pour ne pas qu'ils repassent dans liste_blanc
+            sommetb.coloriser_gris()
+
+            # On récupère les successeurs
+            Succeseurs = G.get_successeur(sommetb.get_Id())
+
+            for sommets in Succeseurs : 
+
+                # Si les sommets sont de couleurs blancs, on les colories et les ajoutent
+                if sommets.get_Couleur() == 0 : 
+
+                    sommets.coloriser_gris()
+                    liste_blanc.append(sommets)
+
+            # Après avoir traité le sommet, on le colorie en noir, l'ajoute à la liste noir et le retire
+            sommetb.coloriser_noir()
+            liste_noir.append(sommetb)
+            liste_blanc.pop(0)
+
+    return liste_noir
+
+'''
+
+
 def estVide(F):
 	
     if F.size() == 0 :
