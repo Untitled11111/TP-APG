@@ -82,6 +82,15 @@ def supprimer_sommet_deja_fait (gris,noirs,valeurs):
                 noirs.append(element[0])
     
 
+def sommet (gris):
+     
+     for element in gris :
+        return gris[0]
+
+def get_aretes(gris):
+     
+     for element in gris : 
+        return gris[1]
 
 def Prim(L2, v0):
     
@@ -105,8 +114,15 @@ def Prim(L2, v0):
     blancs[v0] = False  
     noirs[v0] = True  
     
+    meilleur = meilleur_element(listesuccgris)
 
-    print(" meileur ", meilleur_element(listesuccgris))
+    print(" meileur ", meilleur)
+
+    sommet = meilleur[0]
+    arete = meilleur[1]
+
+    print(" sommet " , sommet)
+    print(" aretes " , arete)
 
     
 
