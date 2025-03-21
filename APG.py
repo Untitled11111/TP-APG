@@ -98,24 +98,11 @@ def Prim(L2, v0):
     
     # V0 n'est plus blanc, il devient gris
     blancs[v0] = False  
-    gris[v0] = True  
+    noirs[v0] = True  
 
     # On itère sur les successeurs de gris
-    for element in listesuccgris:
-        for successeur in element:  
 
 
-            meilleur = meilleur_element([successeur])  
-            c[meilleur[0]] = get_clef(meilleur)  
-            pi[meilleur[0]] = get_pi(meilleur)  
-            
-            print("meilleur élement" ,meilleur)
-            print(" sommet du meilleur ", pi[meilleur[0]])
-            print(" clef du meilleur ", c[meilleur[0]])
-            
-            listesuccgris.append (pi[meilleur[0]])
-            supprimer_sommet_deja_fait(listesuccgris,listesuccnoirs,pi[meilleur[0]] )
-            listesuccgris.append(succ(L2,c[meilleur[0]]))
 
     return pi  
 
