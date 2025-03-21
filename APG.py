@@ -71,26 +71,7 @@ def meilleur_element(lsblanc):
             
     return tmp_sommet, meilleur
 
-
-
-def supprimer_sommet_deja_fait (gris,noirs,valeurs):
-     
-    for sub_liste in gris: 
-         for element in sub_liste : 
-            if element[0] == valeurs : 
-                gris.pop(element[0])
-                noirs.append(element[0])
     
-
-def sommet (gris):
-     
-     for element in gris :
-        return gris[0]
-
-def get_aretes(gris):
-     
-     for element in gris : 
-        return gris[1]
 
 def Prim(L2, v0):
     
@@ -114,18 +95,36 @@ def Prim(L2, v0):
     blancs[v0] = False  
     noirs[v0] = True  
     
+    # trouve le meilleur élément 
     meilleur = meilleur_element(listesuccgris)
 
     print(" meileur ", meilleur)
 
+    #extrait le sommet 
     sommet = meilleur[0]
+    # extrait l'arêtes 
     arete = meilleur[1]
 
     print(" sommet " , sommet)
     print(" aretes " , arete)
 
-    
+    noirs[sommet] = True
+    gris[sommet] = False
 
+    
+    pi[sommet] = v0  
+    c[sommet] = arete  
+
+    # MAJ 
+    for voisin, poids in succ(L2, sommet):
+        if blancs[voisin] and poids < c[voisin]:  
+            c[voisin] = poids
+            pi[voisin] = sommet
+
+    blancs[sommet] = False
+    gris[sommet] = True
+
+    
 
     return pi  
 
